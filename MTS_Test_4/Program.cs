@@ -22,7 +22,7 @@
             return inputStream;*/
             ///2 вариант сортировка подсчетом (так как числа не превышают 2000, то можно создать массив для подсчета чисел)
             ///скорость работы 0(n)
-            ///память 0(k) k=2000
+            ///память 0(k) k=2001
             /*int[] ints = new int[maxValue + 1];
             //O(n)
             foreach (int i in inputStream)
@@ -55,7 +55,7 @@
 
             foreach (int x in inputStream)
             {
-                counts[x % (sortFactor + 1)]++;
+                
 
                 if (x >= max + sortFactor || x > max)
                 {
@@ -72,6 +72,7 @@
                     min = x - sortFactor + 1 > 0 ? x - sortFactor + 1 : 0;
                     max = x;
                 }
+                counts[x % (sortFactor + 1)]++;
             }
 
             for (int i = min; i <= max; i++)
@@ -87,9 +88,9 @@
 
         static void Main(string[] args)
         {
-            List<int> ints = new List<int>() { 100, 2, 1000, 4, 5, 6 };
+            List<int> ints = new List<int>() { 100, 98, 1000, 1004, 1002, 1006 };
             Program p = new Program();
-            var res = p.Sort(ints, 1000, 2000);
+            var res = p.Sort(ints, 3, 2000);
             foreach(int i in res) 
             {
                 Console.WriteLine(i);
